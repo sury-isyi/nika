@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nika</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/inicial.css"> <!-- Referência ao arquivo CSS separado -->
+</head>
+<body>
+
+    <!-- Menu fixo no topo -->
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <header>
+                    <img src="../static/img/logo_home.png" alt="" width="70" height="auto">
+                </header>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="tecnicas.html">Técnicas</a></li>
+                <li><a href="materias.html">Materiais</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo com rolagem -->
+    <div class="scroll-container">
+        <div class="container">
+            <div id="posts-container"></div>
+        </div>
+    
+        <script>
+            // Função para carregar as postagens do localStorage
+            function loadPosts() {
+                const posts = JSON.parse(localStorage.getItem('posts')) || [];
+                const postsContainer = document.getElementById('posts-container');
+    
+                postsContainer.innerHTML = ''; // Limpa a área de postagens
+    
+                // Cria um item para cada postagem
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+    
+                    const descricao = document.createElement('p');
+                    descricao.textContent = post.descricao;
+    
+                    postElement.appendChild(descricao);
+    
+                    if (post.img) {
+                        const img = document.createElement('img');
+                        img.src = post.img;
+                        img.alt = 'Imagem da postagem';
+                        img.width = 200;
+                        postElement.appendChild(img);
+                    }
+    
+                    postsContainer.appendChild(postElement);
+                });
+            }
+    
+            // Carrega as postagens ao carregar a página
+            window.onload = loadPosts;
+        </script>
+    
+        <div class="scroll-content">
+        
+        </div>
+    </div>
+
+    <!-- Botão flutuante bolinha -->
+<button class="floating-btn" onclick="window.location.href='criar.html';">
+    +
+</button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

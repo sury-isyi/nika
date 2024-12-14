@@ -1,0 +1,80 @@
+/* Estilos gerais do corpo */
+body {
+    background-image: url('../img/login.png'); /* Defina sua imagem de fundo */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh; /* Define altura total da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Remove margens padrão */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    
+}
+
+/* Estilos para o contêiner do formulário */
+.form-container {
+    background-color: rgba(255, 169, 90, 0.733); /* Fundo laranja transparente */
+    padding: 30px;
+    border-radius: 15px; /* Arredondamento das bordas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 100%;
+    max-width: 400px; /* Define a largura maxima */
+}
+
+/* Centralizando o título */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os grupos de formuArio */
+.form-group {
+    margin-bottom: 15px; /* Espaço entre os campos */
+    
+}
+
+/* Estilizando os inputs */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 85%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 15px; /* Bordas arredondadas */
+    border: 1px solid #ccc; /* Borda cinza clara */
+}
+
+/* Estilos para o botão de cadastro */
+.btn {
+    background-color: #fa8525; /* Cor laranja */
+    border: none;
+    border-radius: 20px; /* Botão arredondado */
+    padding: 10px; /* Espaçamento interno */
+    color: #000000; /* Texto branco */
+    font-weight: bold;
+    width: 25%; /* Largura total */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    display: block; /* Necessário para usar margin auto */
+    margin: 0 auto; /* Centraliza o botão */
+}
+
+/* Estilo do botão ao passar o mouse */
+.btn:hover {
+    background-color: #ff5722; /* Cor um pouco mais escura no hover */
+}
+/* Estilo para a imagem no canto direito com opacidade e tamanho menor */
+.logo {
+    position: fixed;   /* Faz com que a imagem fique fixa na tela */
+    bottom: 10px;      /* Distância do fundo da tela */
+    right: 10px;       /* Distância da borda direita da tela */
+    width: 120px;       /* Largura da imagem reduzida */
+    height: auto;      /* Altura automática, mantendo a proporção */
+    opacity: 0.7;      /* Opacidade reduzida */
+    z-index: 1000;     /* Garante que a imagem fique visível acima de outros elementos */
+    transition: opacity 0.3s ease;  /* Transição suave para mudanças de opacidade */
+}
+
+/* Opacidade ao passar o mouse (se desejar efeito de hover) */
+.logo:hover {
+    opacity: 1;  /* Tornar a imagem totalmente visível ao passar o mouse */
+}
+

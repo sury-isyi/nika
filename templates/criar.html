@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nika</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/criar.css">
+</head>
+
+<body>
+     <!-- Menu fixo no topo -->
+     <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <header>
+                    <img src="../static/img/logo_home.png" alt="" width="70" height="auto">
+                </header>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="tecnicas.html">Técnicas</a></li>
+                <li><a href="materiais.html">Materiais</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+        <form class="formulario" method="POST" action="#" enctype="multipart/form-data">
+            <h4>Faça uma postagem</h4>
+            </select>
+            <br><br>
+            <label for="descricao">Descrição</label><br>
+            <textarea id="descricao" name="descricao">Diga alguma coisa...</textarea>
+            <br><br>
+            <label for="img">Adicione uma imagem:</label>
+            <input id="img" type="file" name="img" accept="image/*">
+            <br>
+            <button type="submit">Publicar</button>
+            <br>
+        </form>
+    </div>
+
+    <!-- Script -->
+    <script>
+        // Função para abrir e fechar o menu lateral
+        function toggleMenu() {
+            var menu = document.getElementById('menuLateral');
+            var conteudo = document.getElementById('conteudo');
+            menu.classList.toggle('aberto');
+            conteudo.classList.toggle('con-menu-aberto');
+        }
+    </script>
+
+</body>
+
+</html>

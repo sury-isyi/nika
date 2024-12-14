@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Cadastro</title>
+    <link rel="stylesheet" href="../static/css/cadastro.css"> <!-- Link para o CSS -->
+</head>
+<body>
+
+    <!-- Div para o formulário de cadastro -->
+    <div class="form-container">
+        <h2>Cadastre-se</h2>
+        <form method="POST" action="{{ url_for('cadastrar') }}"> <!--vinculacao, fazer em todas as paginas para aparecer, post= formulario, get= resto-->
+            <!-- Campo para o nome do usuário -->
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input name="nome" type="text" id="name" placeholder="Digite seu nome">
+            </div>
+            <!-- Campo para o e-mail do usuário -->
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input name="email" type="email" id="email" placeholder="Digite seu e-mail">
+            </div>
+            <!-- Campo para a senha do usuário -->
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input name="password" type="password" id="password" placeholder="Digite sua senha">
+            </div>
+            <!-- Botão para enviar o formulário -->
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <a href="{{ url_for('logar') }}" style="font-size:12px; margin-left: 47%">ja possui conta? Clique aqui!</a>
+    </div>
+    <img src="../static/img/logo.png" class="logo" alt="logo">
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Impede o envio do formulário padrão
+
+            const email = document.getElementById('email-login').value;
+            const senha = document.getElementById('password-login').value;
+
+            try {
+                // Envia a requisição POST para a API de login
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Se o login for bem-sucedido, armazena o token JWT no localStorage
+                    localStorage.setItem('auth_token', data.token);
+                    window.location.href = '/perfil.html'; // Redireciona para a página de perfil
+                } else {
+                    // Exibe a mensagem de erro no login
+                    errorMessage.textContent = data.message || 'Erro ao fazer login.';
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+                errorMessage.textContent = 'Erro ao tentar fazer login. Tente novamente.';
+            }
+        });
+    </script>
+
+</body>
+</html>

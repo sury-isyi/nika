@@ -1,0 +1,159 @@
+/* Configurações do corpo e do HTML */
+body, html {
+    height: 100%; /* Define a altura total da página */
+    margin: 0; /* Remove a margem padrão */
+    display: flex; /* Usado para alinhar o conteúdo no centro da tela */
+    flex-direction: column; /* Organiza o conteúdo na vertical */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    background-image: url('../img/papel.jpg'); /* Define a imagem de fundo */
+    background-size: auto; /* A imagem de fundo não será redimensionada */
+    background-position: center center; /* A imagem ficará centralizada */
+    background-repeat: no-repeat; /* A imagem não será repetida */
+}
+
+/* Menu */
+nav {
+    width: 208%; /* Ajuste de largura do menu, você pode modificar para 100% se necessário */
+    background-color: #f17e38; /* Cor de fundo do menu */
+    color: rgb(0, 0, 0); /* Cor do texto no menu */
+    padding: 0px; /* Sem padding interno */
+    position: absolute; /* Fixa o menu sobre o restante do conteúdo */
+    top: 100px; /* Define a distância do topo da tela */
+    z-index: 10; /* Garante que o menu ficará sobre outros elementos */
+    background-color: #ff5500; /* Cor de fundo do menu */
+}
+
+/* Menu fixo no topo da tela */
+.navbar {
+    position: fixed; /* Fixação do menu no topo */
+    top: 0; /* Fixa no topo da tela */
+    background-color: #fdba91; /* Cor de fundo do menu fixo */
+    width: 100%; /* Largura completa da tela */
+    padding: 13px; /* Espaçamento interno do menu */
+    z-index: 9999; /* Garante que o menu estará sempre acima de outros elementos */
+}
+
+/* Efeito de hover no item do menu */
+.navbar-nav>li>a:hover {
+    background-color: rgb(255, 153, 0); /* Cor do fundo ao passar o mouse */
+}
+
+/* Adiciona espaço no topo do conteúdo para evitar sobreposição com o menu fixo */
+body {
+    padding-top: 50px; /* Distância do topo para o conteúdo */
+}
+
+/* Estilo da imagem de fundo (caso tenha uma imagem hero) */
+.hero-image {
+    width: 100%; /* A imagem ocupa toda a largura da tela */
+    height: 400px; /* Altura ajustada da imagem */
+    object-fit: cover; /* Faz a imagem cobrir a área sem distorcer */
+}
+
+/* Estilo para a área de rolagem (scroll) */
+.scroll-container {
+    width: 1000px; /* Largura definida do contêiner */
+    height: 500px; /* Altura do contêiner */
+    background-color: white; /* Cor de fundo da área de rolagem */
+    border: 1px solid #ccc; /* Borda ao redor da área de rolagem */
+    padding: 20px; /* Espaçamento interno */
+    overflow-y: auto; /* Permite rolagem vertical */
+    box-shadow: 0 4px 8px rgba(238, 134, 15, 0.904); /* Adiciona sombra ao redor do contêiner */
+    margin-top: 60px; /* Espaçamento abaixo do menu */
+}
+
+/* Conteúdo dentro da área de rolagem */
+.scroll-content {
+    height: 600px; /* Define uma altura para forçar a rolagem */
+}
+
+/* Estilo para os botões dentro do conteúdo rolável */
+.button-container {
+    display: flex; /* Exibe os botões em linha */
+    justify-content: space-around; /* Distribui os botões uniformemente */
+    gap: 5px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite que os botões que não cabem na linha quebrem para a linha seguinte */
+    width: 70%; /* Garante que os botões ocupem toda a largura disponível */
+}
+
+/* Atualização do estilo dos botões para garantir que 3 botões caibam na primeira linha */
+.button-container .btn {
+    background-color: #f17e38; /* Cor de fundo dos botões */
+    color: white; /* Cor do texto dos botões */
+    border: none; /* Remove bordas dos botões */
+    border-radius: 50%; /* Torna os botões arredondados */
+    padding: 5px; /* Espaçamento interno do botão */
+    width: 120px; /* Largura do botão */
+    height: 120px; /* Altura do botão */
+    display: flex; /* Usado para centralizar a imagem e texto dentro do botão */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    flex: 1 0 40%; /* Faz os botões ocuparem 30% da largura, permitindo 3 botões por linha */
+    margin-bottom: 20px; /* Adiciona espaço abaixo de cada botão */
+}
+
+/* Estilo das imagens dentro dos botões */
+.button-container .btn img {
+    width: 125px; /* Largura das imagens dentro dos botões */
+    height: 125px; /* Altura das imagens dentro dos botões */
+    border-radius: 50%; /* Torna as imagens arredondadas */
+    object-fit: cover; /* A imagem preenche todo o botão sem distorcer */
+    margin-bottom: 0px; /* Remove a margem abaixo da imagem */
+}
+
+/* Estilos para o dropdown */
+.dropdown {
+    position: relative; /* Posiciona o dropdown em relação ao seu contêiner */
+    display: inline-block; /* Exibe o dropdown inline */
+}
+
+/* O menu do dropdown está inicialmente oculto */
+.dropdown-content {
+    display: none; /* Esconde o menu por padrão */
+    position: absolute; /* Posiciona o menu de forma absoluta */
+    background-color: #f1f1f1; /* Cor de fundo do dropdown */
+    min-width: 160px; /* Largura mínima do menu */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra ao redor do menu */
+    z-index: 1; /* Garante que o menu esteja acima de outros elementos */
+}
+
+/* Exibe o menu do dropdown quando o usuário passa o mouse */
+.dropdown:hover .dropdown-content {
+    display: block; /* Torna o menu visível ao passar o mouse */
+}
+
+/* Estilo para os links dentro do dropdown */
+.dropdown-content a {
+    color: black; /* Cor do texto */
+    padding: 12px 16px; /* Espaçamento interno dos itens */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Exibe os links como blocos */
+}
+
+/* Efeito de hover nos links do dropdown */
+.dropdown-content a:hover {
+    background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
+
+/* Efeito de hover nos botões */
+.button-container .btn:hover {
+    background-color: #ff5100; /* Altera a cor do botão quando o mouse passa sobre ele */
+}
+
+/* Estilo para o botão bolinha flutuante */
+.floating-btn {
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 20px; /* Distância do fundo da tela */
+    right: 20px; /* Distância da lateral direita da tela */
+    background-color: #f17e38; /* Cor de fundo do botão */
+    color: white; /* Cor do texto dentro do botão */
+    border: none; /* Remove a borda */
+    border-radius: 50%; /* Torna o botão redondo */
+    width: 70px; /* Largura do botão */
+    height: 70px; /* Altura do botão */
+    font-size: 36px; /* Tamanho do texto dentro do botão */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao redor do botão */

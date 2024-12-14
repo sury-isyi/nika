@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres da página para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsabilidade para a exibição correta em dispositivos móveis -->
+    <title>Tela de Login</title> <!-- Título da página que será exibido na aba do navegador -->
+    <link rel="stylesheet" href="../static/css/login.css"> <!-- Link para o arquivo de CSS, onde a aparência da página é configurada -->
+</head>
+<body>
+
+    <!-- Div para o formulário de login -->
+    <div class="form-container">
+        <h2>Login</h2> <!-- Cabeçalho que indica a página de login -->
+
+        <!-- Formulário de login -->
+        <form id="login-form">
+            <!-- Campo para o e-mail do usuário -->
+            <div class="form-group">
+                <label for="email-login">E-mail:</label> <!-- Rótulo que descreve o campo do e-mail -->
+                <input name="email" type="email" id="email-login" placeholder="Digite seu e-mail" required> <!-- Campo de input para o e-mail do usuário -->
+            </div>
+
+            <!-- Campo para a senha do usuário -->
+            <div class="form-group">
+                <label for="password-login">Senha:</label> <!-- Rótulo que descreve o campo da senha -->
+                <input name="password" type="password" id="password-login" placeholder="Digite sua senha" required> <!-- Campo de input para a senha do usuário -->
+            </div>
+
+            <!-- Botão para enviar o formulário de login -->
+            <button type="submit" class="btn">Logar</button> <!-- Botão de envio do formulário -->
+        </form>
+
+        <!-- Link para a página de cadastro, caso o usuário ainda não tenha conta -->
+        <a href="{{ url_for('cadastrar') }}" style="font-size:12px; margin-left: 47%">não possui conta? Clique aqui!</a>
+    </div>
+    <img src="../static/img/logo.png" class="logo" alt="logo">
+    <!-- Bloco de script JavaScript para gerenciar o envio do formulário -->
+    <script>
+        // Obtém o formulário de login pelo seu ID
+        const loginForm = document.getElementById('login-form');
+    
+        // Adiciona um ouvinte de evento ao formulário, para executar a função quando o formulário for enviado
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();  // Impede o envio do formulário padrão (para que possamos manipulá-lo com JavaScript)
+    
+            // Obtém os valores dos campos de e-mail e senha inseridos pelo usuário
+            const email = document.getElementById('email-login').value;
+            const senha = document.getElementById('password-login').value;
+            console.log(email, senha);  // Exibe os valores no console (pode ser útil para depuração)
+    
+            try {
+                // Envia a requisição POST para a API de login
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST', // Método HTTP utilizado para o envio dos dados
+                    headers: {
+                        'Content-Type': 'application/json', // Define que os dados enviados são no formato JSON
+                    },
+                    body: JSON.stringify({ email, senha }) // Corpo da requisição com os dados de e-mail e senha no formato JSON
+                });
+
+                console.log(response)
+                print("..")
+                // Espera a resposta da requisição
+                const data = await response.json(); // Converte a resposta em JSON
+    
+                // Verifica se a resposta da requisição foi bem-sucedida
+                if (response.ok) {
+                    // Se o login for bem-sucedido, exibe uma mensagem de sucesso e redireciona para a página principal
+                    alert('Login bem-sucedido!');
+                    window.location.href = '/inicial.html';  // Redireciona para a página inicial após o login
+                } else {
+                    // Se houver algum erro no login, exibe a mensagem de erro
+                    alert(data.message || 'Erro ao tentar fazer login.');
+                }
+            } catch (error) {
+                console.log(error)
+                // Em caso de erro na requisição, exibe uma mensagem de erro
+                console.error('Erro na requisição:', error); // Exibe o erro no console
+                alert('Erro ao tentar logar. Tente novamente.'); // Exibe uma mensagem de erro para o usuário
+            }
+        });
+    </script>
+    
+
+</body>
+</html>

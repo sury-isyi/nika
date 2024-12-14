@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nika TESTE</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/tecnicas.css"> <!-- Referência ao arquivo CSS separado -->
+</head>
+<body>
+
+    <!-- Menu fixo no topo -->
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <header>
+                    <img src="../static/img/logo_home.png" alt="" width="70" height="auto">
+                </header>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="inicial.html">home</a></li>
+                <li><a href="tecnicas.html">tecnicas</a></li>
+                <li><a href="materiais.html">Materiais</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo com rolagem -->
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <!-- Conteúdo aqui -->
+            <style>/* Estilo para o corpo da página */
+                body {
+                    font-family: Arial, sans-serif;  /* Define a fonte do corpo da página */
+                    margin: 0;  /* Remove a margem padrão */
+                    padding: 0;  /* Remove o padding padrão */
+                    display: flex;  /* Usa Flexbox para o layout */
+                    justify-content: center;  /* Centraliza o conteúdo horizontalmente */
+                    align-items: flex-start;  /* Alinha o conteúdo no topo da página */
+                    height: 100vh;  /* Define a altura da página para ocupar toda a altura da tela */
+                    background-color: #f4f4f4;  /* Define uma cor de fundo suave */
+                    flex-direction: column;  /* Organiza o conteúdo na direção vertical */
+                    padding-top: 50px;  /* Adiciona um espaço superior de 50px */
+                }
+                
+                /* Estilo para a lista */
+                ul {
+                    list-style-type: none;  /* Remove os marcadores (bolinhas) da lista */
+                    padding: 0;  /* Remove o padding da lista */
+                }
+                
+                /* Estilo para cada item da lista */
+                li {
+                    margin: 10px 0;  /* Adiciona um espaço de 10px acima e abaixo de cada item */
+                }
+                
+                /* Estilo para os botões dentro dos itens da lista */
+                .item-btn {
+                    padding: 10px 20px;  /* Adiciona padding interno de 10px na vertical e 20px na horizontal */
+                    background-color: #f17e38;  /* Define a cor de fundo azul para o botão */
+                    color: white;  /* Define a cor do texto como branca */
+                    border: none;  /* Remove as bordas padrão do botão */
+                    cursor: pointer;  /* Altera o cursor para uma mãozinha quando passar sobre o botão */
+                    font-size: 18px;  /* Define o tamanho da fonte */
+                    border-radius: 5px;  /* Adiciona bordas arredondadas ao botão */
+                    width: 912px;  /* Define a largura do botão */
+                }
+                
+                /* Estilo para o botão quando o mouse passar sobre ele */
+                .item-btn:hover {
+                    background-color: #ff5100;  /* Altera a cor de fundo para um tom mais escuro de azul */
+                }
+                
+                /* Estilo para o conteúdo que será mostrado/ocultado ao clicar no botão */
+                .item-content {
+                    display: none;  /* Inicialmente oculta o conteúdo */
+                    margin-top: 10px;  /* Adiciona uma margem superior de 10px */
+                    padding: 10px;  /* Adiciona padding interno de 10px */
+                    background-color: #f1f1f1;  /* Define a cor de fundo do conteúdo como um cinza claro */
+                    border-radius: 5px;  /* Adiciona bordas arredondadas ao conteúdo */
+                    font-size: 16px;  /* Define o tamanho da fonte */
+                }
+                </style>
+        </head>
+        <body>
+        
+            <!-- Lista -->
+            <ul id="lista">
+                <li>
+                    <button class="item-btn" onclick="toggleContent(0)"> Sombreamento (Sombras e Luzes)</button>
+                    <div class="item-content" id="content-0">
+                        <p>Sombreamento suave: Usado para criar transições suaves entre a luz e a sombra, ideal para retratos e objetos arredondados. Isso pode ser feito com lápis de diferentes durezas ou com carvão.</p>
+                        <p>Hachura: Técnica onde linhas paralelas são desenhadas para criar sombras e texturas. As linhas podem ser mais próximas para sombras mais escuras ou mais distantes para áreas mais claras.</p>
+                        <p>Cruzamento de hachuras (Cross-hatching): Consiste em desenhar linhas sobrepostas, de forma cruzada, para intensificar as sombras e criar texturas. Quanto mais camadas, mais escuro fica o sombreado.</p>                  
+                       </div>
+                </li>
+                <li>
+                    <button class="item-btn" onclick="toggleContent(1)">Perspectiva</button>
+                    <div class="item-content" id="content-1">
+                        <p>A perspectiva é uma técnica que simula a profundidade em um desenho plano. Usando linhas de fuga, ela cria a ilusão de que os objetos diminuem à medida que se afastam do observador.</p>
+                        <p><strong>Perspectiva de um ponto:</strong> Usada quando você vê os objetos de frente, e as linhas convergem para um único ponto de fuga.</p>
+                        <p><strong>Perspectiva de dois pontos:</strong> Usada quando há dois pontos de fuga. Isso é comum em desenhos de edifícios ou cenários com ângulos diferentes.</p>
+                        <p><strong>Perspectiva de três pontos:</strong> Uma técnica mais avançada que usa três pontos de fuga, frequentemente usada para criar a sensação de visualização de cima ou de baixo, como ao olhar para um arranha-céu.</p>
+                    </div>
+                </li>
+                <li>
+                    <button class="item-btn" onclick="toggleContent(2)">Hachura</button>
+                    <div class="item-content" id="content-2">
+                        <p>Hachura é uma técnica de sombreamento que usa linhas repetidas para criar sombras e texturas. Essas linhas podem ser paralelas ou cruzadas, dependendo do efeito desejado.</p>
+                        <p><strong>Hachura simples:</strong> Você desenha linhas paralelas em uma direção para criar sombra. Quanto mais próximas as linhas, mais escura a área.</p>
+                        <p><strong>Hachura cruzada:</strong> Linhas que se cruzam em ângulos diferentes para adicionar mais sombra e profundidade. É ótima para áreas de sombra mais intensa.</p>
+                        <p><strong>Hachura direcional:</strong> As linhas podem seguir a forma do objeto que você está desenhando, o que ajuda a dar uma sensação de volume e forma.</p>
+                    </div>
+                </li>
+                <li>
+                    <button class="item-btn" onclick="toggleContent(3)"> Aquarela</button>
+                    <div class="item-content" id="content-3">
+                        <p>A aquarela é uma técnica de pintura onde você usa tintas à base de água. Ela cria cores transparentes e suaves, que podem ser aplicadas em camadas.</p>
+                        <p><strong>Lavagens:</strong> Você aplica uma camada de tinta diluída com água para criar fundos suaves e coloridos.</p>
+                        <p><strong>Molhado sobre molhado:</strong> Você pode aplicar tinta sobre uma área molhada para que as cores se misturem de forma suave e orgânica.</p>     
+                        <p><strong>Molhado sobre seco:</strong> Quando a pintura está seca, a tinta cria linhas e áreas mais nítidas, o que permite adicionar detalhes.</p>             
+                       </div>
+                </li>
+                <li>
+                    <button class="item-btn" onclick="toggleContent(4)"> Figura Humana</button>
+                    <div class="item-content" id="content-4">
+                        <p>O desenho de figura humana envolve estudar e desenhar o corpo humano, com suas proporções e movimentos.</p>
+                        <p><strong>Proporções:</strong> Os artistas estudam as proporções do corpo humano, como a relação entre a cabeça e o resto do corpo. Por exemplo, a altura média de uma pessoa é cerca de 7 a 8 vezes a altura da cabeça.</p>
+                        <p><strong>Gestual:</strong> O desenho gestual captura a postura e o movimento do corpo de forma rápida e expressiva.</p>     
+                        <p><strong>Anatomia:</strong>O estudo dos músculos e ossos é importante para dar realismo e profundidade aos desenhos.</p>             
+                       </div>
+                </li>
+                <li>
+                    <button class="item-btn" onclick="toggleContent(4)"> Desenho a Carvão</button>
+                    <div class="item-content" id="content-4">
+                        <p>O desenho de figura humana envolve estudar e desenhar o corpo humano, com suas proporções e movimentos.</p>
+                        <p><strong>Proporções:</strong> Os artistas estudam as proporções do corpo humano, como a relação entre a cabeça e o resto do corpo. Por exemplo, a altura média de uma pessoa é cerca de 7 a 8 vezes a altura da cabeça.</p>
+                        <p><strong>Gestual:</strong> O desenho gestual captura a postura e o movimento do corpo de forma rápida e expressiva.</p>     
+                        <p><strong>Anatomia:</strong>O estudo dos músculos e ossos é importante para dar realismo e profundidade aos desenhos.</p>             
+                       </div>
+                </li>
+            </ul>
+        
+            <script>
+                // Função para alternar a exibição do conteúdo
+                function toggleContent(index) {
+                    const content = document.getElementById(`content-${index}`);
+                    
+                    // Se o conteúdo estiver visível, esconda-o, caso contrário, mostre-o
+                    if (content.style.display === "none" || content.style.display === "") {
+                        content.style.display = "block";
+                    } else {
+                        content.style.display = "none";
+                    }
+                }
+            </script>
+            
+            </body>
+            </html>
+            
+        </div>
+    </div>
+
+    <!-- Botão flutuante bolinha -->
+    <button class="floating-btn" onclick="alert('Você clicou na bolinha!')">+</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

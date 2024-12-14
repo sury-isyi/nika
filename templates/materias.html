@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nika</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/mteriais.css"> <!-- Referência ao arquivo CSS separado -->
+    
+    <style>
+        /* Fixar o menu no topo */
+        .navbar {
+            position: fixed;
+            top: 0;
+            background-color: #fdba91;
+            width: 100%;
+            padding: 13px;
+            z-index: 9999; /* Garante que o menu ficará sempre acima de outros elementos */
+        }
+
+        /* Adicionar espaçamento no topo do conteúdo para não sobrepor o menu */
+        body {
+            padding-top: 50px; /* Ajuste o valor conforme necessário */
+        }
+
+        /* Estilo do botão bolinha flutuante */
+        .floating-btn {
+            position: fixed; /* Fixa o botão na tela */
+            bottom: 20px; /* Distância do fundo da tela */
+            right: 20px; /* Distância da lateral direita da tela */
+            background-color: #f17e38; /* Cor de fundo amarela */
+            color: white; /* Cor do texto */
+            border: none; /* Remove a borda */
+            border-radius: 50%; /* Deixa o botão redondo */
+            width: 70px; /* Largura do botão */
+            height: 70px; /* Altura do botão */
+            font-size: 36px; /* Tamanho do texto */
+            display: flex;
+            align-items: center; /* Centraliza o conteúdo verticalmente */
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra do botão */
+            cursor: pointer; /* Mostra o cursor de ponteiro */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transições para efeitos */
+        }
+
+        /* Efeito de hover (quando o mouse passa sobre o botão) */
+        .floating-btn:hover {
+            background-color: #ff5100; /* Cor mais escura quando passa o mouse */
+            transform: scale(1.1); /* Aumenta ligeiramente o botão */
+        }
+
+        /* Efeito de clique (quando o botão é pressionado) */
+        .floating-btn:active {
+            transform: scale(0.95); /* Diminui o botão ao ser clicado */
+        }
+
+        /* Estilo do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Estilo para os botões na rolagem */
+        .button-container {
+            margin-bottom: 20px;
+        }
+
+        .dropdown-content a {
+            text-decoration: none;
+            padding: 8px 16px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+   
+    <!-- Menu fixo no topo -->
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <header>
+                    <img src="../static/img/logo_home.png" alt="" width="70" height="auto">
+                </header>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="tecnicas.html">Tecnicas</a></li>
+                <li><a href="active">Materiais</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <!-- Botões com imagens dentro da rolagem -->
+            <div class="row">
+                <!-- Primeiro botão -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/Sketchbook.jpg" alt="Sketchbook" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Sketchbook - Opção 1')">Opção 1</a>
+                                    <a href="#" onclick="showInfo('Sketchbook - Opção 2')">Opção 2</a>
+                                    <a href="#" onclick="showInfo('Sketchbook - Opção 3')">Opção 3</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Segundo botão -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/lapis.jpg" alt="Lapis" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Lapis - Opção 1')">Opção 1</a>
+                                    <a href="#" onclick="showInfo('Lapis - Opção 2')">Opção 2</a>
+                                    <a href="#" onclick="showInfo('Lapis - Opção 3')">Opção 3</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Terceiro botão -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/grafite.webp" alt="Grafite" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Grafite - Lápis H ')">Lápis H (duros)</a>
+                                    <a href="#" onclick="showInfo('Grafite - Lápis F')">Lápis F (fino)</a>
+                                    <a href="#" onclick="showInfo('Grafite - Lápis B')">Lápis B (macios)</a>
+                                    <a href="#" onclick="showInfo('Grafite - Lápis HB')">Lápis HB</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quarto botão -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/papel.jpg" alt="Papel" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Papel - Canson')">Canson</a>
+                                    <a href="#" onclick="showInfo('Papel - Aquarela')">Papéis para Aquarela</a>
+                                    <a href="#" onclick="showInfo('Papel - Fina')">Papel de Textura Fina:</a>
+                                    <a href="#" onclick="showInfo('Papel - Rugosa')">Papel de Textura Rugosa:</a>
+                                    <a href="#" onclick="showInfo('Papel - Pastel')">Papéis para Pastel:</a>
+                                    <a href="#" onclick="showInfo('Papel - Serigrafia')">Papéis para Serigrafia:</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão flutuante bolinha -->
+    <button class="floating-btn">
+        +
+    </button>
+
+    <!-- O modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Informações</h2>
+            <p id="modal-info"></p>
+        </div>
+    </div>
+
+    <script>
+        // Objeto com as informações para cada opção
+        const infoData = {
+            "Sketchbook - Opção 1": "Informações detalhadas sobre o Sketchbook - Opção 1.",
+            "Sketchbook - Opção 2": "Informações detalhadas sobre o Sketchbook - Opção 2.",
+            "Sketchbook - Opção 3": "Informações detalhadas sobre o Sketchbook - Opção 3.",
+            "Lapis - Opção 1": "Informações detalhadas sobre o Lápis - Opção 1.",
+            "Lapis - Opção 2": "Informações detalhadas sobre o Lápis - Opção 2.",
+            "Lapis - Opção 3": "Informações detalhadas sobre o Lápis - Opção 3.",
+            "Grafite - Lápis H": "Lápis H (duros): São lápis com grafite mais duro, ideais para esboços finos e técnicos.",
+            "Grafite - Lápis F": "Lápis F (fino): Lápis com dureza moderada, bom para esboços claros.",
+            "Grafite - Lápis B": "Lápis B (macios): Lápis com grafite mais macio, ideal para sombreamento e contraste.",
+            "Grafite - Lápis HB": "Lápis HB: Lápis padrão, equilibrado para escrita e esboços gerais.",
+            "Papel - Canson": "Canson: Papel de alta qualidade para diversas técnicas como aquarela, grafite e carvão. Oferece diferentes texturas e gramaturas, como Canson XL (acessível) e Canson Mi-Teintes (ideal para pastel).",
+            "Papel - Aquarela": "Papéis para Aquarela: Com alta gramatura (300 g/m² ou mais) e boa absorção, como os papéis Arches (100% algodão) e Fabriano (textura excelente para aquarela).",
+            "Papel - Fina": "Papel de Textura Fina: Superfície lisa, ideal para desenhos detalhados com grafite, lápis de cor ou caneta. Exemplos: Strathmore 400 e Canson Vidalon.",
+            "Papel - Rugosa": "Papel de Textura Rugosa: Superfície áspera, perfeita para carvão, pastéis e técnicas de tinta espessa. Exemplos: Canson Mi-Teintes e Hahnemühle Tiziano.",
+            "Papel - Pastel": "Papéis para Pastel: Textura que ajuda a fixar o pastel. Exemplos: Clairefontaine Pastel e Pastelmat (para camadas pesadas de pastel).",
+            "Papel - Serigrafia": "Papéis para Serigrafia: Superfície ideal para impressões sem borrões, como Rives BFK e Arches 88, usados em serigrafia e outras impressões artísticas."
+};
+            
+    
+        // Função para abrir o modal e exibir as informações
+        function showInfo(option) {
+            var modal = document.getElementById("myModal");
+            var modalTitle = document.getElementById("modal-title");
+            var modalInfo = document.getElementById("modal-info");
+    
+            // Defina as informações baseadas na opção
+            modalInfo.textContent = infoData[option] || "Informação não disponível para esta opção.";
+    
+            // Exibe o modal
+            modal.style.display = "block";
+        }
+    
+        // Função para fechar o modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    
+        // Fecha o modal se o usuário clicar fora dele
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
+
+</body>
+</html>
