@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,6 +15,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../static/css/inicial.css"> <!-- Referência ao arquivo CSS separado -->
 </head>
+
 <body>
 
     <!-- Menu fixo no topo -->
@@ -27,68 +28,204 @@
                 </header>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="tecnicas.html">Técnicas</a></li>
-                <li><a href="materias.html">Materiais</a></li>
+                <li><a href="{{ url_for('inicial') }}" class="active">Home</a></li>
+                <li><a href="{{ url_for('tecnicas') }}">Técnicas</a></li>
+                <li><a href="{{ url_for('materiais') }}">Materiais</a></li>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="{{ url_for('perfil') }}"><span class="glyphicon glyphicon-user"></span>{{ conta }}</a></li>
             </ul>
         </div>
     </nav>
+    <style>
+        /* Estilo geral para o corpo da página */
+        #posts-container {
+            margin: 20px;
+        }
+
+        .post {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            position: relative; /* Necessário para posicionar o botão de exclusão em relação à imagem */
+        }
+
+        .btn-excluir {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;  /* Distância da parte superior do post */
+            right: 10px; /* Distância da parte direita do post */
+            z-index: 10; /* Garante que o botão fique sobre a imagem */
+        }
+
+        .btn-excluir:hover {
+            background-color: darkred;
+        }
+
+        .post img {
+            width: 100%;  /* Garante que a imagem ocupe toda a largura disponível */
+            max-width: 800px; /* Limita o tamanho da imagem */
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* Estilos para o formulário de comentário */
+        form {
+            margin-top: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Container principal das postagens */
+        #posts-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Estilo para cada postagem */
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post:last-child {
+            border-bottom: none;
+        }
+
+        /* Título da postagem (usuário) */
+        .post h4 {
+            color: #333;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* Data da postagem */
+        .post p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Descrição da postagem */
+        .post p:nth-child(3) {
+            color: #555;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Imagem da postagem */
+        .post img {
+            margin-top: 15px;
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Estilos para o formulário de comentário */
+        form {
+            margin-top: 20px;
+        }
+
+        form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        form button {
+            display: inline-block;
+            background-color: #f17e38;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        form button:hover {
+            background-color: #ff5100;
+        }
+    </style>
+
 
     <!-- Conteúdo com rolagem -->
     <div class="scroll-container">
-        <div class="container">
-            <div id="posts-container"></div>
+
+        <div id="posts-container">
+            {% for post in posts %}
+            <div class="post">
+                <h4>{{ post[3].title() }}</h4> <!--usuario-->
+                <p>{{ post[1] }}</p> <!--data-->
+                <p>{{ post[2] }}</p> <!-- descrição -->
+
+                {% if post[5] %} <!-- Verifica se há uma imagem -->
+                <!-- Botão de Excluir sobre a imagem -->
+                <a href="{{ url_for('excluir_post', post_id=post[0]) }}" class="btn-excluir"
+                    onclick="return confirm('Tem certeza que deseja excluir este post?')">Excluir</a>
+                <img src="{{ post[5] }}" alt="Imagem da postagem">
+                {% endif %}
+
+                {% if post[4] %}
+                {% for comentario in post[4] %}
+                <p>{{ comentario[0] }}</p> <!--comentario-->
+                {% endfor %}
+                {% endif %}
+
+                <form method="POST" action="{{ url_for('inicial') }}">
+                    <textarea name="mensagem"></textarea>
+                    <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- Passagem do ID -->
+                    <button type="submit">Enviar Comentário</button>
+                </form>
+            </div>
+            {% endfor %}
         </div>
-    
-        <script>
-            // Função para carregar as postagens do localStorage
-            function loadPosts() {
-                const posts = JSON.parse(localStorage.getItem('posts')) || [];
-                const postsContainer = document.getElementById('posts-container');
-    
-                postsContainer.innerHTML = ''; // Limpa a área de postagens
-    
-                // Cria um item para cada postagem
-                posts.forEach(post => {
-                    const postElement = document.createElement('div');
-                    postElement.classList.add('post');
-    
-                    const descricao = document.createElement('p');
-                    descricao.textContent = post.descricao;
-    
-                    postElement.appendChild(descricao);
-    
-                    if (post.img) {
-                        const img = document.createElement('img');
-                        img.src = post.img;
-                        img.alt = 'Imagem da postagem';
-                        img.width = 200;
-                        postElement.appendChild(img);
-                    }
-    
-                    postsContainer.appendChild(postElement);
-                });
-            }
-    
-            // Carrega as postagens ao carregar a página
-            window.onload = loadPosts;
-        </script>
-    
+
+
+
+
         <div class="scroll-content">
-        
+
         </div>
     </div>
 
     <!-- Botão flutuante bolinha -->
-<button class="floating-btn" onclick="window.location.href='criar.html';">
-    +
-</button>
+    <button class="floating-btn" onclick="window.location.href='{{ url_for('criar') }}';">
+        +
+    </button>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
