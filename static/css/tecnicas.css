@@ -13,16 +13,36 @@ body, html {
 }
 
 /* Menu */
-nav {
-    width: 208%; /* Considere ajustar a largura para um valor mais apropriado, como '100%' */
-    background-color: #f17e38; /* Cor de fundo do menu */
-    color: rgb(0, 0, 0); /* Cor do texto do menu */
-    padding: 208px; /* Espaçamento interno do menu */
-    position: absolute; /* Para que o menu fique sobre o container */
-    top: 100; /* Fixa o menu no topo da página */
-    z-index: 10; /* Garante que o menu fique em cima do container */
-    background-color: #ff5500; /
-}    
+/* Remove o estilo padrão dos links no menu */
+.navbar-nav li a {
+    color: #333; /* Cor do texto dos botões */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold; /* Texto em negrito */
+    padding: 10px 15px; /* Espaçamento interno */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Efeito de transição */
+}
+
+/* Cor e estilo ao passar o mouse */
+.navbar-nav li a:hover {
+    color: #fff; /* Cor do texto ao passar o mouse */
+    background-color: #ff5100; /* Cor de fundo ao passar o mouse */
+    border-radius: 5px; /* Bordas arredondadas nos botões */
+}
+
+/* Estilo para o botão ativo */
+.navbar-nav li.active a {
+    color: #fff; /* Cor do texto do botão ativo */
+    background-color: #f17e38; /* Cor de fundo do botão ativo */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Alinhar o menu à esquerda */
+.navbar-nav {
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove espaçamento */
+    list-style: none; /* Remove os marcadores de lista */
+}
+    
 
 /* Container com scroll */
 .scroll-container {
@@ -113,4 +133,3 @@ body {
 .floating-btn:active {
     transform: scale(0.95); /* Diminui o botão ao ser clicado */
 }
-
