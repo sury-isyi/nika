@@ -26,13 +26,12 @@
                 </header>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="tecnicas.html">Técnicas</a></li>
-                <li><a href="materiais.html">Materiais</a></li>
+                <li><a href="{{ url_for('inicial') }}">Home</a></li>
+                <li><a href="{{ url_for('tecnicas') }}">Técnicas</a></li>
+                <li><a href="{{ url_for('materiais') }}">Materiais</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="{{ url_for('perfil') }}"><span class="glyphicon glyphicon-user"></span>{{ conta }}</a></li>
             </ul>
         </div>
     </nav>
@@ -42,27 +41,15 @@
             </select>
             <br><br>
             <label for="descricao">Descrição</label><br>
-            <textarea id="descricao" name="descricao">Diga alguma coisa...</textarea>
+            <textarea id="descricao" name="descricao" placeholder="Descreva..."></textarea>
             <br><br>
             <label for="img">Adicione uma imagem:</label>
-            <input id="img" type="file" name="img" accept="image/*">
+            <input id="img" type="file" name="img" accept="image/*" required>
             <br>
             <button type="submit">Publicar</button>
             <br>
         </form>
     </div>
-
-    <!-- Script -->
-    <script>
-        // Função para abrir e fechar o menu lateral
-        function toggleMenu() {
-            var menu = document.getElementById('menuLateral');
-            var conteudo = document.getElementById('conteudo');
-            menu.classList.toggle('aberto');
-            conteudo.classList.toggle('con-menu-aberto');
-        }
-    </script>
-
 </body>
 
 </html>
