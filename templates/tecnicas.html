@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>nika TESTE</title>
+    <title>Nika-Tecnicas</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -25,13 +25,13 @@
                 </header>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="inicial.html">home</a></li>
-                <li><a href="tecnicas.html">tecnicas</a></li>
-                <li><a href="materiais.html">Materiais</a></li>
+                <li><a href="{{ url_for('inicial') }}">Home</a></li>
+                <li><a href="{{ url_for('tecnicas') }}" class="active">Técnicas</a></li>
+                <li><a href="{{ url_for('materiais') }}">Materiais</a></li>
             </ul>
+            
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="{{ url_for('perfil') }}"><span class="glyphicon glyphicon-user"></span>{{ conta }}</a></li>
             </ul>
         </div>
     </nav>
@@ -41,18 +41,7 @@
         <div class="scroll-content">
             <!-- Conteúdo aqui -->
             <style>/* Estilo para o corpo da página */
-                body {
-                    font-family: Arial, sans-serif;  /* Define a fonte do corpo da página */
-                    margin: 0;  /* Remove a margem padrão */
-                    padding: 0;  /* Remove o padding padrão */
-                    display: flex;  /* Usa Flexbox para o layout */
-                    justify-content: center;  /* Centraliza o conteúdo horizontalmente */
-                    align-items: flex-start;  /* Alinha o conteúdo no topo da página */
-                    height: 100vh;  /* Define a altura da página para ocupar toda a altura da tela */
-                    background-color: #f4f4f4;  /* Define uma cor de fundo suave */
-                    flex-direction: column;  /* Organiza o conteúdo na direção vertical */
-                    padding-top: 50px;  /* Adiciona um espaço superior de 50px */
-                }
+               
                 
                 /* Estilo para a lista */
                 ul {
@@ -100,10 +89,11 @@
                 <li>
                     <button class="item-btn" onclick="toggleContent(0)"> Sombreamento (Sombras e Luzes)</button>
                     <div class="item-content" id="content-0">
-                        <p>Sombreamento suave: Usado para criar transições suaves entre a luz e a sombra, ideal para retratos e objetos arredondados. Isso pode ser feito com lápis de diferentes durezas ou com carvão.</p>
-                        <p>Hachura: Técnica onde linhas paralelas são desenhadas para criar sombras e texturas. As linhas podem ser mais próximas para sombras mais escuras ou mais distantes para áreas mais claras.</p>
-                        <p>Cruzamento de hachuras (Cross-hatching): Consiste em desenhar linhas sobrepostas, de forma cruzada, para intensificar as sombras e criar texturas. Quanto mais camadas, mais escuro fica o sombreado.</p>                  
-                       </div>
+                        <p><strong>Sombreamento suave:</strong> Usado para criar transições suaves entre a luz e a sombra, ideal para retratos e objetos arredondados. Isso pode ser feito com lápis de diferentes durezas ou com carvão.</p>
+                        <p><strong>Hachura:</strong> Técnica onde linhas paralelas são desenhadas para criar sombras e texturas. As linhas podem ser mais próximas para sombras mais escuras ou mais distantes para áreas mais claras.</p>
+                        <p><strong>Cruzamento de hachuras (Cross-hatching):</strong> Consiste em desenhar linhas sobrepostas, de forma cruzada, para intensificar as sombras e criar texturas. Quanto mais camadas, mais escuro fica o sombreado.</p>
+                        <a href="https://youtu.be/AgR0G9Csk0o?feature=shared" target="_blank">videos demostrando sombreamento e luz na pratica</a>
+                    </div>
                 </li>
                 <li>
                     <button class="item-btn" onclick="toggleContent(1)">Perspectiva</button>
@@ -112,6 +102,7 @@
                         <p><strong>Perspectiva de um ponto:</strong> Usada quando você vê os objetos de frente, e as linhas convergem para um único ponto de fuga.</p>
                         <p><strong>Perspectiva de dois pontos:</strong> Usada quando há dois pontos de fuga. Isso é comum em desenhos de edifícios ou cenários com ângulos diferentes.</p>
                         <p><strong>Perspectiva de três pontos:</strong> Uma técnica mais avançada que usa três pontos de fuga, frequentemente usada para criar a sensação de visualização de cima ou de baixo, como ao olhar para um arranha-céu.</p>
+                        <a href="https://youtu.be/9Ad2pHcbyp4?feature=shared" target="_blank">videos demostrando pespectiva na pratica</a>
                     </div>
                 </li>
                 <li>
@@ -121,6 +112,7 @@
                         <p><strong>Hachura simples:</strong> Você desenha linhas paralelas em uma direção para criar sombra. Quanto mais próximas as linhas, mais escura a área.</p>
                         <p><strong>Hachura cruzada:</strong> Linhas que se cruzam em ângulos diferentes para adicionar mais sombra e profundidade. É ótima para áreas de sombra mais intensa.</p>
                         <p><strong>Hachura direcional:</strong> As linhas podem seguir a forma do objeto que você está desenhando, o que ajuda a dar uma sensação de volume e forma.</p>
+                        <a href="https://youtu.be/b92M--e2lPM?feature=shared" target="_blank">videos demostrando hachura na pratica</a>
                     </div>
                 </li>
                 <li>
@@ -129,7 +121,8 @@
                         <p>A aquarela é uma técnica de pintura onde você usa tintas à base de água. Ela cria cores transparentes e suaves, que podem ser aplicadas em camadas.</p>
                         <p><strong>Lavagens:</strong> Você aplica uma camada de tinta diluída com água para criar fundos suaves e coloridos.</p>
                         <p><strong>Molhado sobre molhado:</strong> Você pode aplicar tinta sobre uma área molhada para que as cores se misturem de forma suave e orgânica.</p>     
-                        <p><strong>Molhado sobre seco:</strong> Quando a pintura está seca, a tinta cria linhas e áreas mais nítidas, o que permite adicionar detalhes.</p>             
+                        <p><strong>Molhado sobre seco:</strong> Quando a pintura está seca, a tinta cria linhas e áreas mais nítidas, o que permite adicionar detalhes.</p>   
+                        <a href="https://youtu.be/vI5aq4F4DqI?feature=shared" target="_blank">videos demostrando de aquarela na pratica</a>          
                        </div>
                 </li>
                 <li>
@@ -138,16 +131,26 @@
                         <p>O desenho de figura humana envolve estudar e desenhar o corpo humano, com suas proporções e movimentos.</p>
                         <p><strong>Proporções:</strong> Os artistas estudam as proporções do corpo humano, como a relação entre a cabeça e o resto do corpo. Por exemplo, a altura média de uma pessoa é cerca de 7 a 8 vezes a altura da cabeça.</p>
                         <p><strong>Gestual:</strong> O desenho gestual captura a postura e o movimento do corpo de forma rápida e expressiva.</p>     
-                        <p><strong>Anatomia:</strong>O estudo dos músculos e ossos é importante para dar realismo e profundidade aos desenhos.</p>             
+                        <p><strong>Anatomia:</strong>O estudo dos músculos e ossos é importante para dar realismo e profundidade aos desenhos.</p>     
+                        <a href="https://youtu.be/iVd-Lec_jKk" target="_blank">videos demostrando de figura humana na pratica</a>         
                        </div>
                 </li>
                 <li>
-                    <button class="item-btn" onclick="toggleContent(4)"> Desenho a Carvão</button>
-                    <div class="item-content" id="content-4">
-                        <p>O desenho de figura humana envolve estudar e desenhar o corpo humano, com suas proporções e movimentos.</p>
-                        <p><strong>Proporções:</strong> Os artistas estudam as proporções do corpo humano, como a relação entre a cabeça e o resto do corpo. Por exemplo, a altura média de uma pessoa é cerca de 7 a 8 vezes a altura da cabeça.</p>
-                        <p><strong>Gestual:</strong> O desenho gestual captura a postura e o movimento do corpo de forma rápida e expressiva.</p>     
-                        <p><strong>Anatomia:</strong>O estudo dos músculos e ossos é importante para dar realismo e profundidade aos desenhos.</p>             
+                    <button class="item-btn" onclick="toggleContent(5)"> Textura</button>
+                    <div class="item-content" id="content-5">
+                        <p><strong>Texturização com Linhas:</strong>  Usar linhas curtas, onduladas ou repetitivas para criar texturas específicas (madeira, cabelo, pele), Observe a textura real e tente imitar o padrão natural.</p>
+                        <p><strong>Pontos e Riscos:</strong> O que é: Misturar pequenos pontos e traços para criar superfícies rugosas,Ideal para desenhar pedras ou areia.</p>     
+                        <p><strong>Grattage:</strong>O que é: Raspar a superfície do desenho para revelar camadas inferiores, Use uma borracha ou objeto pontiagudo para criar efeitos sutis</p>     
+                        <a href="https://youtu.be/nMuXAYG5ZGo" target="_blank">videos demostrando de textura na pratica</a>         
+                       </div>
+                </li>
+                <li>
+                    <button class="item-btn" onclick="toggleContent(6)"> Observação</button>
+                    <div class="item-content" id="content-6">
+                        <p><strong>Desenho de Contorno:</strong> Foque nos contornos externos e internos do objeto sem se preocupar com detalhes. Ajuda a desenvolver a percepção das formas.</p>
+                        <p><strong>Desenho às Cegas:</strong>Desenhe sem olhar para o papel, concentrando-se apenas no objeto. Essa prática aumenta a coordenação olho-mão.</p>     
+                        <p><strong>Proporções e Medidas:</strong>Use um lápis ou régua para comparar proporções e ângulos enquanto observa um objeto.</p>     
+                        <a href="https://youtu.be/pOdz4BNK6Xw" target="_blank">videos demostrando de observação na pratica</a>         
                        </div>
                 </li>
             </ul>
@@ -173,7 +176,9 @@
     </div>
 
     <!-- Botão flutuante bolinha -->
-    <button class="floating-btn" onclick="alert('Você clicou na bolinha!')">+</button>
+    <button class="floating-btn" onclick="window.location.href='{{ url_for('criar') }}';">
+        +
+    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
