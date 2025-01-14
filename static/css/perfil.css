@@ -1,0 +1,227 @@
+/* Configurações do corpo e do HTML */
+body, html {
+    height: 100%; /* 100% da altura da página */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../img/papel.jpg'); /* Imagem de fundo */
+    background-size: auto; /* Garante que a imagem de fundo não seja redimensionada */
+    background-position: center center; /* Centraliza a imagem de fundo */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+}
+
+/* Menu */
+/* Remove o estilo padrão dos links no menu */
+.navbar-nav li a {
+    color: #333; /* Cor do texto dos botões */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold; /* Texto em negrito */
+    padding: 10px 15px; /* Espaçamento interno */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Efeito de transição */
+}
+
+/* Cor e estilo ao passar o mouse */
+.navbar-nav li a:hover {
+    color: #fff; /* Cor do texto ao passar o mouse */
+    background-color: #ff5100; /* Cor de fundo ao passar o mouse */
+    border-radius: 5px; /* Bordas arredondadas nos botões */
+}
+
+/* Estilo para o botão ativo */
+.navbar-nav li.active a {
+    color: #fff; /* Cor do texto do botão ativo */
+    background-color: #f17e38; /* Cor de fundo do botão ativo */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Alinhar o menu à esquerda */
+.navbar-nav {
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove espaçamento */
+    list-style: none; /* Remove os marcadores de lista */
+}
+  
+
+/* Fixar o menu no topo */
+.navbar {
+    position: fixed;
+    top: 0;
+    background-color: #fdba91;
+    width: 100%;
+    padding: 13px;
+    z-index: 9999; /* Garante que o menu ficará sempre acima de outros elementos */
+}
+
+.navbar-nav>li>a:hover {
+    background-color: rgb(255, 153, 0);
+}
+
+/* Adicionar espaçamento no topo do conteúdo para não sobrepor o menu */
+body {
+    padding-top: 50px; /* Ajuste o valor conforme necessário */
+}
+
+/* Estilo da imagem de fundo */
+.hero-image {
+    width: 100%; /* Faz a imagem ocupar toda a largura da tela */
+    height: 400px; /* Ajuste a altura da imagem conforme necessário */
+    object-fit: cover; /* Faz a imagem preencher a área sem distorcer */
+}
+
+/* Estilo geral do contêiner */
+.perfil-container {
+    max-width: 400px; /* Largura máxima */
+    margin: 50px auto; /* Centraliza na tela */
+    padding: 20px; /* Espaçamento interno */
+    background-color: rgba(252, 178, 110, 0.733); /* Cor de fundo suave */
+    border-radius: 10px; /* Arredonda os cantos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+    font-family: Arial, sans-serif; /* Define fonte padrão */
+}
+
+/* Estilo para as informações (nome e email) */
+.perfil-informacoes {
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+#nome, #email, #senha{
+    background-color: #fadbcae2; 
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.perfil-informacoes p {
+    font-size: 16px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    margin: 10px 0; /* Espaçamento entre os parágrafos */
+}
+
+/* Botões */
+.perfil-botoes {
+    display: flex; /* Layout flexível */
+    justify-content: space-between; /* Botões separados */
+}
+
+.perfil-botoes button {
+    padding: 10px 20px; /* Espaçamento interno dos botões */
+    font-size: 14px; /* Tamanho da fonte */
+    color: white; /* Cor do texto */
+    background-color: #f17e38; /* Cor do botão */
+    border: none; /* Remove bordas */
+    border-radius: 5px; /* Arredonda os cantos */
+    cursor: pointer; /* Mostra o cursor de clique */
+    transition: background-color 0.3s; /* Efeito de transição */
+}
+
+.perfil-botoes button:hover {
+    background-color: #ff5500; /* Cor ao passar o mouse */
+}
+
+/* Estilização do contêiner */
+#conteudo {
+    background-color: rgba(252, 178, 110, 0.733); /* Cor de fundo clara */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.296); /* Sombra suave */
+    max-width: 400px; /* Largura máxima */
+    margin: 50px auto; /* Centraliza horizontalmente e adiciona margem superior */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estilização do título */
+#conteudo h4 {
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilização dos rótulos */
+#conteudo label {
+    display: block; /* Exibe cada label em uma nova linha */
+    margin-bottom: 8px; /* Espaçamento inferior */
+    font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilização dos campos de entrada */
+#conteudo input[type="text"],
+#conteudo input[type="password"] {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+    border: 1px solid #cccccc; /* Borda cinza */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+/* Estilização dos botões */
+#conteudo .btn {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaçamento entre botões */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+/* Botão primário */
+#conteudo .btn-primary {
+    background-color: #f17e38; /* Cor azul */
+    color: #fffffff0; /* Cor branca */
+}
+
+#conteudo .btn-primary:hover {
+    background-color: #ff5500; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Botão secundário */
+#conteudo .btn-secondary {
+    background-color: #595450; /* Cor cinza */
+    color: #fffffff0; /* Cor branca */
+}
+
+#conteudo .btn-secondary:hover {
+    background-color: #1c1b1b; /* Cinza mais escuro ao passar o mouse */
+}
+
+/* Estilo do botão bolinha flutuante */
+.floating-btn {
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 20px; /* Distância do fundo da tela */
+    right: 20px; /* Distância da lateral direita da tela */
+    background-color: #f17e38; /* Cor de fundo amarela */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 50%; /* Deixa o botão redondo */
+    width: 70px; /* Largura do botão */
+    height: 70px; /* Altura do botão */
+    font-size: 36px; /* Tamanho do texto */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra do botão */
+    cursor: pointer; /* Mostra o cursor de ponteiro */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições para efeitos */
+}
+
+/* Efeito de hover (quando o mouse passa sobre o botão) */
+.floating-btn:hover {
+    background-color: #ff5100; /* Cor mais escura quando passa o mouse */
+    transform: scale(1.1); /* Aumenta ligeiramente o botão */
+}
+
+/* Efeito de clique (quando o botão é pressionado) */
+.floating-btn:active {
+    transform: scale(0.95); /* Diminui o botão ao ser clicado */
+}
+
+.conteudo h4 {
+    text-align: center; /* Centraliza o título */
+    color: #000000; /* Cor do texto */
+    font-size: 24px; /* Tamanho do título */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    font-family: Comic Sans MS, Comic Sans, cursive; /* Aplica a fonte Lobster */
+}
