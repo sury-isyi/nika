@@ -18,10 +18,10 @@ def conectar():
     Retorna um objeto de conexão.
     """
     conexao = mysql.connector.connect(
-        host="localhost",       # Endereço do servidor MySQL (local neste caso)
-        user="root",            # Usuário do banco de dados
-        password="zorogostoso", # Senha do banco de dados
-        database="nika"         # Nome do banco de dados
+        host="localhost",       
+        user="root",            
+        password="zorogostoso", 
+        database="nika"         
     )
     return conexao  # Retorna a conexão para ser usada nas consultas
 
@@ -58,7 +58,7 @@ def cadastrar():
                 
                 session["email_user"] = email
                 print("Cadastro realizado com sucesso!")  
-                return redirect(url_for("logar"))  # Redireciona para a página inicial
+                return redirect(url_for("logar"))  
 
             except Error as e:  # Captura erros relacionados ao banco de dados
                 print(f"Erro ao cadastrar usuário: {e}")  # Mostra o erro no console
@@ -67,7 +67,7 @@ def cadastrar():
         # Se algum campo estiver vazio, retorna ao formulário com uma mensagem de erro
         return render_template("cadastro.html", error="Preencha todos os campos.")
 
-    # Se o método for GET, exibe o formulário de cadastro
+   
     return render_template("cadastro.html")
 
 @app.route('/login', methods=["GET", "POST"])
