@@ -13,16 +13,36 @@ body, html {
 }
 
 /* Menu */
-nav {
-    width: 208%; /* Ajuste de largura do menu, você pode modificar para 100% se necessário */
-    background-color: #f17e38; /* Cor de fundo do menu */
-    color: rgb(0, 0, 0); /* Cor do texto no menu */
-    padding: 0px; /* Sem padding interno */
-    position: absolute; /* Fixa o menu sobre o restante do conteúdo */
-    top: 100px; /* Define a distância do topo da tela */
-    z-index: 10; /* Garante que o menu ficará sobre outros elementos */
-    background-color: #ff5500; /* Cor de fundo do menu */
+/* Remove o estilo padrão dos links no menu */
+.navbar-nav li a {
+    color: #333; /* Cor do texto dos botões */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold; /* Texto em negrito */
+    padding: 10px 15px; /* Espaçamento interno */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Efeito de transição */
 }
+
+/* Cor e estilo ao passar o mouse */
+.navbar-nav li a:hover {
+    color: #fff; /* Cor do texto ao passar o mouse */
+    background-color: #ff5100; /* Cor de fundo ao passar o mouse */
+    border-radius: 5px; /* Bordas arredondadas nos botões */
+}
+
+/* Estilo para o botão ativo */
+.navbar-nav li.active a {
+    color: #fff; /* Cor do texto do botão ativo */
+    background-color: #f17e38; /* Cor de fundo do botão ativo */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Alinhar o menu à esquerda */
+.navbar-nav {
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove espaçamento */
+    list-style: none; /* Remove os marcadores de lista */
+}
+
 
 /* Menu fixo no topo da tela */
 .navbar {
@@ -72,20 +92,20 @@ body {
 .button-container {
     display: flex; /* Exibe os botões em linha */
     justify-content: space-around; /* Distribui os botões uniformemente */
-    gap: 5px; /* Espaçamento entre os botões */
+    gap: 3px; /* Espaçamento entre os botões */
     flex-wrap: wrap; /* Permite que os botões que não cabem na linha quebrem para a linha seguinte */
-    width: 70%; /* Garante que os botões ocupem toda a largura disponível */
+    width: 75%; /* Garante que os botões ocupem toda a largura disponível */
 }
 
 /* Atualização do estilo dos botões para garantir que 3 botões caibam na primeira linha */
 .button-container .btn {
-    background-color: #f17e38; /* Cor de fundo dos botões */
+    background-color: #ffffff; /* Cor de fundo dos botões */
     color: white; /* Cor do texto dos botões */
     border: none; /* Remove bordas dos botões */
-    border-radius: 50%; /* Torna os botões arredondados */
-    padding: 5px; /* Espaçamento interno do botão */
+    border-radius: 100%; /* Torna os botões arredondados */
+    padding: 0px; /* Espaçamento interno do botão */
     width: 120px; /* Largura do botão */
-    height: 120px; /* Altura do botão */
+    height: 150px; /* Altura do botão */
     display: flex; /* Usado para centralizar a imagem e texto dentro do botão */
     justify-content: center; /* Centraliza os itens horizontalmente */
     align-items: center; /* Centraliza os itens verticalmente */
@@ -96,7 +116,7 @@ body {
 /* Estilo das imagens dentro dos botões */
 .button-container .btn img {
     width: 125px; /* Largura das imagens dentro dos botões */
-    height: 125px; /* Altura das imagens dentro dos botões */
+    height: 200px; /* Altura das imagens dentro dos botões */
     border-radius: 50%; /* Torna as imagens arredondadas */
     object-fit: cover; /* A imagem preenche todo o botão sem distorcer */
     margin-bottom: 0px; /* Remove a margem abaixo da imagem */
@@ -157,3 +177,4 @@ body {
     align-items: center; /* Centraliza o conteúdo verticalmente */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao redor do botão */
+}
