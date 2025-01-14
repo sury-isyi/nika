@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>nika</title>
+    <title>Nika-Materiais</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -123,13 +123,13 @@
                 </header>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="tecnicas.html">Tecnicas</a></li>
-                <li><a href="active">Materiais</a></li>
+                <li><a href="{{ url_for('inicial') }}">Home</a></li>
+                <li><a href="{{ url_for('tecnicas') }}">Técnicas</a></li>
+                <li><a href="{{ url_for('materiais') }}" class="active">Materiais</a></li>
             </ul>
+            
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="{{ url_for('perfil') }}"><span class="glyphicon glyphicon-user"></span>{{ conta }}</a></li>
             </ul>
         </div>
     </nav>
@@ -161,9 +161,9 @@
                             <div class="dropdown">
                                 <img src="../static/img/lapis.jpg" alt="Lapis" style="width: 100%; height: auto;">
                                 <div class="dropdown-content">
-                                    <a href="#" onclick="showInfo('Lapis - Opção 1')">Opção 1</a>
-                                    <a href="#" onclick="showInfo('Lapis - Opção 2')">Opção 2</a>
-                                    <a href="#" onclick="showInfo('Lapis - Opção 3')">Opção 3</a>
+                                    <a href="#" onclick="showInfo('Lapis - Lápis de Grafite')">Lápis de Grafite (escala H, HB, B)</a>
+                                    <a href="#" onclick="showInfo('Lapis - Lápis de Cor')">Lápis de Cor</a>
+                                    <a href="#" onclick="showInfo('Lapis - Lápis Aquarelável')">Lápis Aquarelável</a>
                                 </div>
                             </div>
                         </button>
@@ -171,6 +171,37 @@
                 </div>
 
                 <!-- Terceiro botão -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/tinta.jpg" alt="Tintas" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Tinta - Aquarela')">Tinta Aquarela</a>
+                                    <a href="#" onclick="showInfo('Tinta - Gouache')">Tinta Gouache</a>
+                                    <a href="#" onclick="showInfo('Tinta - acrílica')">Tinta acrílica</a>
+                                    <a href="#" onclick="showInfo('Tinta - a óleo')">Tinta a óleo</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <!--quarto botao--> 
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/marcador.jpg" alt="Canetas e Marcadores" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Canetas - Fineliners')">Canetas Fineliners</a>
+                                    <a href="#" onclick="showInfo('Canetas - Gel')">Canetas de Gel</a>
+                                    <a href="#" onclick="showInfo('Canetas - Marcadores')">Marcadores (Copic, Promarker, etc.)</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <!--quinta botao--> 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="button-container">
                         <button class="btn">
@@ -186,13 +217,42 @@
                         </button>
                     </div>
                 </div>
-
-                <!-- Quarto botão -->
+                <!--sexta botao--> 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="button-container">
                         <button class="btn">
                             <div class="dropdown">
-                                <img src="../static/img/papel.jpg" alt="Papel" style="width: 100%; height: auto;">
+                                <img src="../static/img/borracha.jpg" alt="Borrachas" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Borrachas - Borracha Comum')">Borracha Comum</a>
+                                    <a href="#" onclick="showInfo('Borrachas - Borracha Amassada')">Borracha Amassada</a>
+                                    <a href="#" onclick="showInfo('Borrachas - Borracha Elétrica')">Borracha Elétrica</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div> 
+                </div>
+                <!--setima botao--> 
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/pinceis.jpg" alt="Pincéis" style="width: 100%; height: auto;">
+                                <div class="dropdown-content">
+                                    <a href="#" onclick="showInfo('Pincéis - Pincéis para Aquarela')">Pincéis para Aquarela</a>
+                                    <a href="#" onclick="showInfo('Pincéis - Pincéis Sintéticos para Acrílico')">Pincéis Sintéticos para Acrílico</a>
+                                    <a href="#" onclick="showInfo('Pincéis - Pincéis de Detalhe')">Pincéis de Detalhe</a>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <!--oitava botao--> 
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="button-container">
+                        <button class="btn">
+                            <div class="dropdown">
+                                <img src="../static/img/folha.jpg" alt="Papel" style="width: 100%; height: auto;">
                                 <div class="dropdown-content">
                                     <a href="#" onclick="showInfo('Papel - Canson')">Canson</a>
                                     <a href="#" onclick="showInfo('Papel - Aquarela')">Papéis para Aquarela</a>
@@ -229,13 +289,33 @@
             "Sketchbook - Opção 1": "Informações detalhadas sobre o Sketchbook - Opção 1.",
             "Sketchbook - Opção 2": "Informações detalhadas sobre o Sketchbook - Opção 2.",
             "Sketchbook - Opção 3": "Informações detalhadas sobre o Sketchbook - Opção 3.",
-            "Lapis - Opção 1": "Informações detalhadas sobre o Lápis - Opção 1.",
-            "Lapis - Opção 2": "Informações detalhadas sobre o Lápis - Opção 2.",
-            "Lapis - Opção 3": "Informações detalhadas sobre o Lápis - Opção 3.",
+
+            "Lapis - Lápis de Grafite": "Lápis de Grafite: Desde esboços leves até sombreamento forte. A dureza do grafite é indicada pela letra e número. Lápis H são mais duros e deixam linhas finas e claras. HB é o meio termo, usado para esboços gerais. Já os lápis B, como 2B, 4B, 6B, são mais macios e deixam linhas mais escuras e grossas, perfeitos para sombreamentos e contrastes fortes.",
+            "Lapis - Lápis de Cor": "Lápis de Cor: Para desenhos coloridos, ilustrações e retoques em desenhos. São compostos por uma mistura de cera ou óleo e pigmentos. Algumas marcas oferecem lápis de cor solúvel em água, permitindo a criação de efeitos de aquarela. Existem lápis de cor com cores vibrantes e outros com tons mais sutis.",
+            "Lapis - Lápis Aquarelável": "Lápis Aquarelável: Para técnicas de aquarela ou desenhos que podem ser diluídos com água. Funciona como lápis de cor, mas pode ser misturado com água para criar um efeito de aquarela. Ao ser aplicado com água, ele se espalha e se mistura, criando um efeito suave e fluido.",
+
+            "Tinta - Aquarela": "Tinta Aquarela: Desenhos e pinturas com efeito transparente e fluido, A aquarela é uma tinta solúvel em água que cria efeitos de transparência e mistura suave entre as cores. Ao ser aplicada sobre o papel, ela é absorvida, permitindo camadas de cor mais leves. A paleta é vasta, com cores brilhantes e suaves",
+            "Tinta - Gouache": "Tinta Gouache: Pintura com acabamento opaco e cores intensas. A gouache é semelhante à aquarela, mas contém maior concentração de pigmento e um agente opacificante. Isso faz com que as cores sejam mais vibrantes e opacas. para trabalhos em que se deseja um efeito de cobertura maior.",
+            "Tinta - acrílica":"Tinta acrílica: Desenho e pintura com acabamento opaco, rápida secagem. A tinta acrílica tem uma base sintética e seca muito mais rápido do que a óleo. A tinta pode ser diluída com água para obter um efeito mais fluido ou usada mais espessa para textura. Além disso, é versátil, podendo ser aplicada em diversos tipos de superfícies.",
+            "Tinta - a óleo": "Tinta a óleo: Pintura detalhada e de longa duração, com acabamento brilhante.  A tinta a óleo é tradicionalmente utilizada para pinturas detalhadas e realistas, pois demora a secar, permitindo que o artista trabalhe por mais tempo as camadas de tinta. A mistura de cores e as transições suaves são características dessa tinta.",
+            
+            "Canetas - Fineliners":"Canetas Fineliners: Para desenhos de linhas finas e detalhes minuciosos. São canetas com pontas finas que permitem traços nítidos e precisos. São ideais para contornos e desenhos detalhados. Algumas canetas fineliners também são impermeáveis, permitindo o uso de tintas ou aquarelas sobre o desenho.",
+            "Canetas - Gel": "Canetas de Gel: Para detalhes, brilhos e efeitos de luz em desenhos. São canetas com tinta gel, muitas vezes usadas para adicionar pontos de brilho ou detalhes delicados sobre os desenhos. Elas podem ser usadas em diversas superfícies e têm boa intensidade de cor",
+            "Canetas - Marcadores": "Maracadores: Para colorir grandes áreas com cores uniformes e vibrantes. Marcadores possuem tinta à base de álcool, o que permite uma aplicação suave e sem marcas de pincel. Eles oferecem uma gama de cores vastas e podem ser usados para sombreamento ou para criar transições de cor suaves.",
+
             "Grafite - Lápis H": "Lápis H (duros): São lápis com grafite mais duro, ideais para esboços finos e técnicos.",
             "Grafite - Lápis F": "Lápis F (fino): Lápis com dureza moderada, bom para esboços claros.",
             "Grafite - Lápis B": "Lápis B (macios): Lápis com grafite mais macio, ideal para sombreamento e contraste.",
             "Grafite - Lápis HB": "Lápis HB: Lápis padrão, equilibrado para escrita e esboços gerais.",
+
+            "Borrachas - Borracha Comum":"Borracha Comum: Apagar erros e rascunhos de lápis. As borrachas comuns são as mais simples e acessíveis. Elas podem apagar bem as linhas de lápis mais suaves, mas podem danificar papéis mais finos.",
+            "Borrachas - Borracha Amassada":"Borracha Amassada: Para apagar sem deixar vestígios e criar efeitos de luz. A borracha amassada é macia e maleável, sendo ótima para apagar áreas pequenas e criar efeitos de luz e suavidade em desenhos com carvão ou lápis.",
+            "Borrachas - Borracha Elétrica":"Borracha Elétrica:  Para apagar com precisão detalhes pequenos e delicados. Uma borracha elétrica é acionada por um motor que faz com que a borracha gire, permitindo apagar de forma precisa e rápida.",
+
+            "Pincéis - Pincéis para Aquarela":"Pincéis para Aquarela: Pintura e mistura de cores com tintas aquosas. Os pincéis para aquarela geralmente têm cerdas mais macias e flexíveis, permitindo criar transições suaves e aplicações mais controladas de tinta.",
+            "Pincéis - Pincéis Sintéticos para Acrílico":"Pincéis Sintéticos para Acrílico: Pintura com tintas acrílicas, especialmente em superfícies mais rígidas. Pincéis sintéticos são mais rígidos e duráveis, tornando-os ideais para o uso com tintas espessas, como a acrílica.",
+            "Pincéis - Pincéis de Detalhe":"Pincéis de Detalhe: Para áreas pequenas e detalhes finos em desenhos ou pinturas. Pincéis com cerdas muito finas, ideais para detalhes intrincados e efeitos sutis em desenhos de alta precisão.",
+
             "Papel - Canson": "Canson: Papel de alta qualidade para diversas técnicas como aquarela, grafite e carvão. Oferece diferentes texturas e gramaturas, como Canson XL (acessível) e Canson Mi-Teintes (ideal para pastel).",
             "Papel - Aquarela": "Papéis para Aquarela: Com alta gramatura (300 g/m² ou mais) e boa absorção, como os papéis Arches (100% algodão) e Fabriano (textura excelente para aquarela).",
             "Papel - Fina": "Papel de Textura Fina: Superfície lisa, ideal para desenhos detalhados com grafite, lápis de cor ou caneta. Exemplos: Strathmore 400 e Canson Vidalon.",
@@ -272,6 +352,10 @@
             }
         }
     </script>
+
+<button class="floating-btn" onclick="window.location.href='{{ url_for('criar') }}';">
+    +
+</button>
     
 
 </body>
